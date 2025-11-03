@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SimpleTaskTracker.Data;
 using SimpleTaskTracker.DTO;
+using SimpleTaskTracker.Models;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -15,7 +16,7 @@ public class IssuesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Getall()
+    public async Task<IActionResult> GetAll()
     {
         var issues = await _context.IssueItems.Select(i => new IssueListDto
         {
@@ -25,7 +26,7 @@ public class IssuesController : ControllerBase
 
         return Ok(issues);
     }
-    
+
     [HttpGet("{id}")]
     public async Task<IActionResult> BrowseIssue(int id)
     {
@@ -57,5 +58,18 @@ public class IssuesController : ControllerBase
             return NotFound();
 
         return Ok(issue);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateIssue([FromBody] CreateOrUpdateIssueDto createIssueDto)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        var issue = new IssueItem { Title = createIssueDto.Title, Description = createIssueDto.Description };
+        _context.IssueItems.Add(issue);
+        await _context.SaveChangesAsync();
+        return CreatedAtAction(nameof(BrowseIssue), new { id = issue.Id }, issue);
     }
 }
