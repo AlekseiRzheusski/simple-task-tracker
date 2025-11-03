@@ -1,5 +1,7 @@
 using SimpleTaskTracker.Data;
 using Microsoft.EntityFrameworkCore;
+using SimpleTaskTracker.Services;
+using SimpleTaskTracker.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<SimpleTaskTrackerDbContext>(options =>
     options.UseSqlite("Data Source=test.db"));
+
+builder.Services.AddScoped<IIssueService, IssueService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
