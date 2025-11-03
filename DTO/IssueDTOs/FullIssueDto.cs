@@ -1,7 +1,7 @@
 using SimpleTaskTracker.Models;
 namespace SimpleTaskTracker.DTO;
 
-public class FullIssueDTO
+public class FullIssueDto
 {
     public int Id { get; set; }
     public string Title { get; set; } = null!;
@@ -12,13 +12,13 @@ public class FullIssueDTO
     public List<IssueRelationListDto> RelationsFrom { get; set; } = new List<IssueRelationListDto>();
     public List<IssueRelationListDto> RelationsTo { get; set; } = new List<IssueRelationListDto>();
 
-    public FullIssueDTO()
+    public FullIssueDto()
     {
         RelationsFrom = new List<IssueRelationListDto>();
         RelationsTo = new List<IssueRelationListDto>();
     }
 
-    public FullIssueDTO(IssueItem issue)
+    public FullIssueDto(IssueItem issue)
     {
         this.Id = issue.Id;
         this.Title = issue.Title;
