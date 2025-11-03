@@ -1,11 +1,5 @@
+using SimpleTaskTracker.Enums;
 namespace SimpleTaskTracker.Models;
-
-public enum RelationType
-{
-    Block,
-    Clone,
-    Depend
-}
 
 public class IssueRelation
 {
@@ -15,5 +9,5 @@ public class IssueRelation
     public int ToIssueId { get; set; }
     public IssueItem ToIssue { get; set; } = null!;
 
-    public RelationType RelationType{ get; set; }
+    public RelationType RelationType { get; set; }
 }
