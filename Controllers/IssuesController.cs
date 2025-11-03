@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SimpleTaskTracker.Data;
+
 using SimpleTaskTracker.DTO;
-using SimpleTaskTracker.Models;
-using SimpleTaskTracker.Enums;
 using SimpleTaskTracker.Services.Interfaces;
 using SimpleTaskTracker.Exceptions;
-using System.Globalization;
+
+namespace SimpleTaskTracker.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
