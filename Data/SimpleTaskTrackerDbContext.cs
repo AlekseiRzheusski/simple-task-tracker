@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+
 using SimpleTaskTracker.Models;
 using SimpleTaskTracker.Data.Configuration;
 

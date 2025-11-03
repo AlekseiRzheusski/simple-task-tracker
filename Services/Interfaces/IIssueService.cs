@@ -1,5 +1,7 @@
 using SimpleTaskTracker.DTO;
+
 namespace SimpleTaskTracker.Services.Interfaces;
+
 public interface IIssueService
 {
     Task<List<IssueListDto>> GetAllAsync();

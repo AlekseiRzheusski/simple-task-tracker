@@ -1,6 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using SimpleTaskTracker.Models;
-
 namespace SimpleTaskTracker.DTO;
 
 public class UpdateIssueDto

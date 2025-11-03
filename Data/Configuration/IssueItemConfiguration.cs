@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 using SimpleTaskTracker.Models;
 
 namespace SimpleTaskTracker.Data.Configuration;

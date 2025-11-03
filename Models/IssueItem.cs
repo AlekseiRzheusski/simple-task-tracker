@@ -13,6 +13,9 @@ public class IssueItem
 
     public IssueItem ShallowCopy()
     {
-        return new IssueItem{ Title = this.Title, Description = this.Description };
+        return new IssueItem {
+            Title = this.Title,
+            Description = this.Description
+        };
     }
 }

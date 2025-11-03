@@ -1,8 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+
 using SimpleTaskTracker.Services.Interfaces;
 using SimpleTaskTracker.Data;
 using SimpleTaskTracker.Models;
 using SimpleTaskTracker.DTO;
-using Microsoft.EntityFrameworkCore;
 using SimpleTaskTracker.Exceptions;
 using SimpleTaskTracker.Enums;
 
@@ -92,7 +93,7 @@ public class IssueService : IIssueService
 
         await _context.SaveChangesAsync();
     }
-    
+
     public async Task<FullIssueDto> CloneIssueAsync(int id)
     {
         var issue = await _context.IssueItems.FindAsync(id);

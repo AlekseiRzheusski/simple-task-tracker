@@ -1,4 +1,5 @@
 using SimpleTaskTracker.Models;
+
 namespace SimpleTaskTracker.DTO;
 
 public class FullIssueDto
@@ -27,11 +28,19 @@ public class FullIssueDto
         this.UpdatedAt = issue.UpdatedAT;
 
         RelationsFrom = issue.RelationsFrom?
-            .Select(r => new IssueRelationListDto { Id = r.ToIssue.Id, Title = r.ToIssue.Title, RelationType = r.RelationType})
+            .Select(r => new IssueRelationListDto {
+                Id = r.ToIssue.Id,
+                Title = r.ToIssue.Title,
+                RelationType = r.RelationType
+            })
             .ToList() ?? new List<IssueRelationListDto>();
 
         RelationsTo = issue.RelationsTo?
-            .Select(r => new IssueRelationListDto { Id = r.FromIssue.Id, Title = r.FromIssue.Title, RelationType = r.RelationType })
+            .Select(r => new IssueRelationListDto {
+                Id = r.FromIssue.Id,
+                Title = r.FromIssue.Title,
+                RelationType = r.RelationType
+            })
             .ToList() ?? new List<IssueRelationListDto>();
     }
 }
