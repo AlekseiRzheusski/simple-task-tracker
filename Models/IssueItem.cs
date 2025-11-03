@@ -11,4 +11,8 @@ public class IssueItem
     public List<IssueRelation> RelationsFrom { get; set; } = new List<IssueRelation>();
     public List<IssueRelation> RelationsTo { get; set; } = new List<IssueRelation>();
 
+    public IssueItem ShallowCopy()
+    {
+        return new IssueItem{ Title = this.Title, Description = this.Description };
+    }
 }
